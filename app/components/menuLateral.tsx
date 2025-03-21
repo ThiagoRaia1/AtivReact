@@ -1,6 +1,7 @@
 import { Link, usePathname } from "expo-router";
 import { View, Text, StyleSheet, Image } from "react-native";
 import { useAuth } from "../../context/auth";
+import UsersList from "./scrollableTable";
 
 export default function MenuLateral() {
     const { user } = useAuth();
@@ -13,7 +14,7 @@ export default function MenuLateral() {
 
     return (
         <View style={styles.container}>
-            <View style={[styles.leftSide, { gap: 20 },  {backgroundColor: 'yellow'}]}>
+            <View style={[styles.leftSide, { gap: 20 },  {backgroundColor: '#a1dcff'}]}>
                 <View style={{marginLeft: 30, gap: 20}}>
                     <Image source={require('../../assets/icon.png')} style={{width: 200, height: 200}}/>
                     <Text>Bem-vindo, {user.email}!</Text>
@@ -34,8 +35,8 @@ export default function MenuLateral() {
                     </Link>
                 </View>
             </View>
-            <View style={[styles.rightSide, {backgroundColor: 'blue'}]}>  
-                <Link href="/menuPrincipal/agenda">Entrar</Link>
+            <View style={[styles.rightSide, {backgroundColor: '#a1dcff'}]}>  
+                <UsersList></UsersList>
             </View>
         </View>
     );
